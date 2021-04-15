@@ -1,0 +1,80 @@
+@import "../../variables.module.scss";
+
+.sidebarWrapper {
+  overflow: scroll;
+  width: 275px;
+  height: 100vh;
+  background: var(--bg-sidebar);
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .nameWrapper {
+    background: var(--blue-dark);
+    padding: 5px 20px 5px 50px;
+    width: 200px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    margin: 20px 0;
+    margin-bottom: 50px;
+
+    .nameTitle{
+      font-family: "Saira", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 31px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      
+      span{
+       font-family: "open-sans";
+      font-size: 12px;
+      }
+    }
+  }
+
+  .sidebarDescription{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    color: var(--text-secondary-light);
+    text-transform: uppercase;
+    padding: 20px 50px 5px 50px;
+  }
+
+  .sidebarFooter{
+    @extend.sidebarDescription;
+    padding: 32px 0;
+  }
+}
+
+
+.linkWrapper {
+  color: var(--text-secondary);
+  // background: ${props => (props.linkactive ? "var(--sidebar-hover)" : "none")};
+  // font-size: 14px;
+  // line-height: 19px;
+  // display: flex;
+  // width: 100%;
+  // padding: 9px 50px;
+  // cursor: pointer;
+  // font-weight: ${props => (props.linkactive ? "bold" : "normal")};
+  &:hover {
+    font-weight: bold;
+    color: var(--text-secondary);
+    background: var(--sidebar-hover);
+    // ${Icon} {
+    //   color: var(--text-secondary);
+    // }
+  }
+
+  i {
+  color: var(--text-secondary-light);
+  font-size: 20px;
+  padding-right: 10px;
+  }
+}

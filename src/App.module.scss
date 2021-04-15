@@ -1,0 +1,14 @@
+@import "./variables.module.scss";
+
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .pages{
+    width: calc(100% - 275px);
+    box-shadow: -8px 0px 10px 1px rgba(0, 0, 0, 0.26);
+    z-index: 1;
+  }
+}

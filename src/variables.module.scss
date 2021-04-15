@@ -1,0 +1,41 @@
+// Colors
+$bg-main: #FFFFFF;
+$black: #000;
+$red: red;
+$white: #fff;
+$blue-light: rgba(122, 156, 222, 0.2);
+$blue-dark: #061D49;
+$blue: #004B8F;
+$blue-border: #2134E0;
+$green-light: #04C200;
+$green-dark: #04B000;
+$orange: #FF7F37;
+$gray: #CCCCCC;
+$half-gray: #3F4557;
+$participant: rgb(4,194,0);
+$in-progress: rgb(64,137,245);
+
+$inboundColor: #f15dc1;
+$outboundColor: #a369e8;
+
+// 
+$critical: #FF0000;
+$high: #FF8744;
+$low: #FF8744;
+$ok: #64c565;
+$clean: #64c565;
+
+// Text Colors
+$text-primary: #000000;
+$text-primary-light: rgba(0, 0, 0, 0.6);
+$text-description: #393939;
+$text-light-gray: rgba($half-gray, .5);
+$text-white: $white;
+$text-half-white: rgba($white, .5);
+
+// Fonts
+$title: bold 28px "Open Sans" !default;
+$title-medium: bold 22px "Open Sans" !default;
+$title-small: bold 14px "Open Sans" !default;
+$description: normal 14px "Open Sans" !default;
+$h2-bold: bold 28px "Open Sans" !default;
