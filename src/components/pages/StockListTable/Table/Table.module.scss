@@ -1,0 +1,44 @@
+@import "../../../../variables.module.scss";
+
+table {
+  max-height: 600px;
+  overflow: auto;
+  width: 100%;
+
+  thead {
+    padding: 15px 65px;
+    max-height: 50px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.6);
+
+    tr{
+      justify-content: space-between;
+
+      th{
+        max-width: 160px;
+        padding: 15px 25px; 
+      }
+    }
+  }
+
+  tbody {
+    tr{
+      padding: 15px 65px;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+      color: var(--text-primary);
+      font-weight: normal;
+
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.03);
+        cursor: pointer;
+      }
+
+      td{
+        padding: 15px 25px;
+      }
+    }
+  }
+}

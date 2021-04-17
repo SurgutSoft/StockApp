@@ -12,12 +12,21 @@ import Sidebar from "./components/sidebar/Sidebar";
 import {StockListTable} from "./components/pages/StockListTable/StockListTable";
 
 import css from "./App.module.scss";
+import {fetchStocksList} from "./store/actions";
 
+interface IProps {
+  fetchStocksList: () => void;
+}
 
-const App = ({}) => {
+const App = ({
+  fetchStocksList
+}: IProps) => {
+
   useEffect(() => {
-
-  }, []);
+    fetchStocksList();
+  }, [
+    fetchStocksList
+  ]);
 
   return (
     <Router>
@@ -25,8 +34,8 @@ const App = ({}) => {
         <Sidebar />
         <div className={css.pages}>
           <Switch>
-            <Route path={URLS.dashboard} component={StockListTable} />
-            <Redirect to={URLS.dashboard} />
+            <Route path={URLS.stockList} component={StockListTable} />
+            <Redirect to={URLS.stockList} />
           </Switch>
         </div>
       </div>
@@ -41,7 +50,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-
+    fetchStocksList: () => dispatch(fetchStocksList())
   };
 };
 

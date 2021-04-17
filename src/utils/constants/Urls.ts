@@ -1,5 +1,5 @@
 export enum URLS {
-  dashboard = "/monitoring/dashboard",
+  stockList = "/monitoring/stockList",
 
   login = "/login",
 };
