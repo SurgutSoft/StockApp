@@ -19,23 +19,65 @@ export const fetchSuccess = (type: any, items: any) => {
   };
 };
 
+// const fetchItems = (path: string, success: string, error: string, loading: string, method?: string, body?: any) => {
+//   return (dispatch: any) => {
+//     loading && dispatch({type: loading});
+//     api({
+//       method: method || "GET",
+//       url: path,
+//       //body: JSON.stringify(body)
+//     })
+
+//     .then(response => {
+//       if (!response.ok) {
+//         throw Error(response.statusText);
+//       }
+//       return response;
+//     })
+//     .then(response => { 
+//       debugger;
+//       response.json()
+//     })
+//     .then(items => {
+//       debugger;
+//       dispatch(fetchSuccess(success, items))
+//     })
+//     .catch(() => dispatch(fetchErrored(error)));
+//   }
+// };
+
 const fetchItems = (path: string, success: string, error: string, loading: string, method?: string, body?: any) => {
-  return (dispatch: any) => {
+  return async (dispatch: any) => {
     loading && dispatch({type: loading});
-    api({
-      method: method || "GET",
-      url: path,
-      //body: JSON.stringify(body)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      return response;
-    })
-    .then(response => response.json())
-    .then(items => dispatch(fetchSuccess(success, items)))
-    .catch(() => dispatch(fetchErrored(error)));
+
+    try {
+      const data = await api({
+        method: method || "GET",
+        url: path,
+        //body: JSON.stringify(body)
+      });
+      // const rt = []
+      // const objectData = Object.keys(data).forEach(key => rt.push(data[key]))
+      dispatch(fetchSuccess(success, data));
+    } catch {
+      dispatch(fetchErrored(error))
+    }
+
+    //   .then(response => {
+    //     if (!response.ok) {
+    //       throw Error(response.statusText);
+    //     }
+    //     return response;
+    //   })
+    // .then(response => {
+    //   debugger;
+    //   response.json()
+    // })
+    // .then(items => {
+    //   debugger;
+    //   dispatch(fetchSuccess(success, items))
+    // })
+    // .catch(() => dispatch(fetchErrored(error)));
   }
 };
 

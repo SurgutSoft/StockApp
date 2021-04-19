@@ -31,7 +31,7 @@ export default class Sidebar extends Component {
           <SidebarLink
             //iconName="device_hub"
             text="что-то ещё"
-            path=""
+            path={URLS.stockChart}
           />
           <div className={css.sidebarDescription}>something else</div>
           <SidebarLink

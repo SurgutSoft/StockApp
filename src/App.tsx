@@ -10,6 +10,7 @@ import {connect} from "react-redux";
 import {URLS} from "./utils/constants/Urls";
 import Sidebar from "./components/sidebar/Sidebar";
 import {StockListTable} from "./components/pages/StockListTable/StockListTable";
+import {ChartComponent} from "./components/pages/Charts/index";
 
 import css from "./App.module.scss";
 import {fetchStocksList} from "./store/actions";
@@ -35,6 +36,7 @@ const App = ({
         <div className={css.pages}>
           <Switch>
             <Route path={URLS.stockList} component={StockListTable} />
+            <Route path={URLS.stockChart} component={ChartComponent} />
             <Redirect to={URLS.stockList} />
           </Switch>
         </div>
