@@ -1,6 +1,8 @@
 import {combineReducers} from "redux";
-import {stockListReducer} from "./common";
+import {stockListReducer} from "./stockList";
+import {stockPriceReducer} from "./stockPrice";
 
 export const rootReducer = combineReducers({
-  stockList: stockListReducer
+  stockList: stockListReducer,
+  stockPrice: stockPriceReducer,
 });

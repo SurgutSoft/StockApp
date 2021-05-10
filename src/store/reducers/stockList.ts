@@ -1,4 +1,8 @@
-import {GET_STOCK_LIST_SUCESS, GET_STOCK_LIST_LOADING, GET_STOCK_LIST_ERROR} from "../actions";
+import {
+  GET_STOCK_LIST_SUCESS,
+  GET_STOCK_LIST_LOADING,
+  GET_STOCK_LIST_ERROR,
+} from "../actions";
 
 export const stockListReducer = (state = [], action: {type: any; items: {}}) => {
   switch (action.type) {
