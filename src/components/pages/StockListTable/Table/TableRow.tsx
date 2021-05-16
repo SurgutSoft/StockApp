@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import {useHistory} from 'react-router';
 import {IStockList} from '../../../../Interfaces/ICommon';
 import {URLS} from '../../../../utils/constants/Urls';
@@ -21,7 +22,7 @@ export const TableRow = ({item, fetchPrice}: IProps) => {
       <td>{item.SECID}</td>
       <td>{item.bottom_predict}</td>
       <td>{item.top_predict}</td>
-      <td>{item.TRADEDATE}</td>
+      <td>{moment(item.TRADEDATE).format("YYYY-MM-DD")}</td>
       <td>{"=>"}</td>
     </tr>
   )
