@@ -50,7 +50,7 @@ export const fetchStocksList = () => {
 
 export const fetchPrice = (stock: string) => {
   return fetchItems(
-    `/stock_predict/api/get_price/SBER`,
+    `/stock_predict/api/get_price/${stock}`,
     GET_STOCK_PRICE_SUCESS,
     GET_STOCK_PRICE_ERROR,
     GET_STOCK_PRICE_LOADING

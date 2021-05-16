@@ -1,39 +1,49 @@
 
 import React from 'react';
+import { Button } from 'antd'
 import Chart from './StockChart';
-import {connect} from "react-redux";
-import {getData} from "../../../utils/mockData";
-import {fetchPrice} from "../../../store/actions";
+import { connect } from "react-redux";
 
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 class StockChartComponent extends React.Component {
 	async componentDidMount() {
-		const data = await this.props.dispatch(fetchPrice());
-		console.log(this.props);
-		console.log(data);	
+		if(this.props.stockPrice.items) {
+			const parseData = [];
+			this.props.stockPrice.items.forEach(el => {
+				parseData.push({
+					date: new Date(el.TRADEDATE),
+					open: el.OPEN,
+					high: el.HIGH,
+					low: el.LOW,
+					close: el.CLOSE,
+					//volume: d.volume,
+				})
+			});
 
-		getData().then(data => {
-			this.setState({ data })
-		})
+			this.setState({ data: parseData })
+		}
 	}
 
 	render() {
-		if (this.state == null) {
+		if(this.state?.data == null) {
 			return <div>Loading...</div>
 		}
 		return (
-			<TypeChooser>
-				{type => <Chart type={type} data={this.state.data} />}
-			</TypeChooser>
+			<div>
+				<Button type="primary" onClick={() => this.props.history.goBack()}>{"<="}</Button>
+				<TypeChooser>
+					{type => <Chart type={type} data={this.state.data} />}
+				</TypeChooser>
+			</div>
 		)
 	}
 }
 
 const mapStateToProps = state => {
-  return {
-    stockPrice: state.stockPrice,
-  };
+	return {
+		stockPrice: state.stockPrice,
+	};
 };
 
 export const StockChart = connect(mapStateToProps)(StockChartComponent);

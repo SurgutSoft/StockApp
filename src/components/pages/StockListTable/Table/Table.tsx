@@ -7,11 +7,12 @@ import {IStockListData} from '../../../../Interfaces/ICommon';
 
 interface IProps {
   data: IStockListData,
+  fetchPrice: (stock: string) => void;
 }
 
-const columns = ["Наименование", "нижний порог", "верхний порог", "на дату"]
+const columns = ["НАИМЕНОВАНИЕ", "НИЖНИЙ ПОРОГ", "ВЕРХНИЙ ПОРОГ", "ДАТА", " "]
 
-export const Table = ({data}: IProps) => {
+export const Table = ({data, fetchPrice}: IProps) => {
   return (
     <table>
       <thead>
@@ -22,7 +23,7 @@ export const Table = ({data}: IProps) => {
 
       <tbody>
         {data.items?.map((item: any) =>
-          <TableRow item={item} key={item.SECID}/>
+          <TableRow item={item} key={item.SECID} fetchPrice={fetchPrice}/>
         )}
       </tbody>
     </table>

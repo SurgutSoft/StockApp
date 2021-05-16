@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {fetchStocksList} from "../../../store/actions";
+import {fetchStocksList, fetchPrice} from "../../../store/actions";
 import {Table} from "./Table/Table";
 
 import css from "./StockListTable.module.scss";
@@ -10,13 +10,14 @@ import {IStockListData} from "../../../Interfaces/ICommon";
 interface IProps {
   stockList: IStockListData;
   fetchStocksList: () => void;
+  fetchPrice: (stock: string) => void;
 }
 
-const StockListTableComponent = ({stockList}: IProps) => {
+const StockListTableComponent = ({stockList, fetchPrice}: IProps) => {
   return (
     <div className={css.wrapper} >
       <div className={css.content}>
-        <Table data={stockList}/>
+        <Table data={stockList} fetchPrice={fetchPrice}/>
       </div>
     </div>
   )
@@ -31,6 +32,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchStocksList: () => dispatch(fetchStocksList()),
+    fetchPrice: (stock: string) => dispatch(fetchPrice(stock)),
   };
 };
 
