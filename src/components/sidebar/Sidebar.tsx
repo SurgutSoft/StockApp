@@ -27,7 +27,7 @@ export const Sidebar = ({isMobile}: IProps) => {
 
           <SidebarLink
             text="Статистика"
-            path=""
+            path={URLS.statistics}
           />
 
           <SidebarLink

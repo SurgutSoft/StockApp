@@ -13,6 +13,7 @@ import {Sidebar} from "./components/sidebar/Sidebar";
 import {StockListTable} from "./components/pages/StockListTable/StockListTable";
 import {StockChart} from "./components/pages/Charts/index";
 import {About} from "./components/pages/About/About";
+import {Statistics} from "./components/pages/Statystics/Statistics";
 
 import css from "./App.module.scss";
 import 'antd/dist/antd.css';
@@ -44,6 +45,7 @@ const App = ({
             <Route path={URLS.stockList} component={StockListTable} />
             <Route path={URLS.stockChart} component={StockChart} />
             <Route path={URLS.about} component={About} />
+            <Route path={URLS.statistics} component={Statistics} />
             <Redirect to={URLS.stockList} />
           </Switch>
         </div>
