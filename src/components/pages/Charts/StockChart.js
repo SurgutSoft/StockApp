@@ -61,7 +61,7 @@ class StockChart extends React.Component {
     ];
 
     return (
-      <ChartCanvas height={600}
+      <ChartCanvas height={400}
         ratio={ratio}
         width={width}
         margin={{ left: 50, right: 50, top: 10, bottom: 30 }}

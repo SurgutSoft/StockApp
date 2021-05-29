@@ -1,7 +1,6 @@
 @import "../../variables.module.scss";
 
-.sidebarWrapper {
-  overflow: scroll;
+.sidebarWrapperDesktop {
   width: 275px;
   height: 100vh;
   background: var(--bg-sidebar);
@@ -43,7 +42,7 @@
     line-height: 14px;
     color: var(--text-secondary-light);
     text-transform: uppercase;
-    padding: 20px 50px 5px 50px;
+    padding: 20px 50px 5px 30px;
   }
 
   .sidebarFooter{
@@ -52,9 +51,69 @@
   }
 }
 
+.sidebarWrapperMobile {
+  @extend.sidebarWrapperDesktop;
+  width: 100%;
+  height: 100px;
+  background: var(--bg-sidebar-horizontal);
+  color: var(--text-secondary);
+  display: flex;
+  //flex-direction: row;
+  justify-content: space-between;
 
+  .linksWrapper {
+    display: flex;
+    padding-top: 40px;
+    margin-left: -60px;
+    justify-content: space-between;
+
+    .linkWrapper {
+      margin-left: 0px;
+      padding-right: 3px;
+
+      .iconDiv{
+        padding-right: 3px;
+      }
+    }
+  }
+
+  .flexMobileWrapper{
+    display: flex;
+    margin-left: -60px;
+
+    .nameWrapper {
+      background: var(--blue-dark);
+      border-top-right-radius: 100px;
+      border-bottom-right-radius: 100px;
+      transform: rotate(90deg);
+  
+      .nameTitle{
+        font-family: "Saira", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 10px;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        padding-left: 40px;
+        
+        span{
+         font-family: "open-sans";
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+
+
+//--------------------
 .linkWrapper {
   color: var(--text-secondary);
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
   // background: ${props => (props.linkactive ? "var(--sidebar-hover)" : "none")};
   // font-size: 14px;
   // line-height: 19px;
@@ -73,8 +132,8 @@
   }
 
   .iconDiv {
-  color: var(--text-secondary-light);
-  font-size: 20px;
-  padding-right: 10px;
+    color: var(--text-secondary-light);
+    font-size: 20px;
+    padding-right: 10px;
   }
 }

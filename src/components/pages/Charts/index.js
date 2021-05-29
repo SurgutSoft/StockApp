@@ -1,10 +1,13 @@
 
 import React from 'react';
-import { Button } from 'antd'
+import { Button, Radio } from 'antd'
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import Chart from './StockChart';
 import { connect } from "react-redux";
 
+import { chartPeriodFilters } from '../../../utils/constants/common'
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import css from "./StockChart.module.scss";
 
 class StockChartComponent extends React.Component {
 	async componentDidMount() {
@@ -30,11 +33,21 @@ class StockChartComponent extends React.Component {
 			return <div>Loading...</div>
 		}
 		return (
-			<div>
-				<Button type="primary" onClick={() => this.props.history.goBack()}>{"<="}</Button>
-				<TypeChooser>
-					{type => <Chart type={type} data={this.state.data} />}
-				</TypeChooser>
+			<div className={css.wrapper}>
+				<div className={css.content}>
+					<div className={css.header}>
+						<Button type="default" onClick={() => this.props.history.goBack()}>
+							<ArrowLeftOutlined />
+						</Button>
+
+						<Radio.Group>
+							{chartPeriodFilters.map(item => <Radio.Button value={item.value}>{item.label}</Radio.Button>)}
+						</Radio.Group>
+					</div>
+					<TypeChooser>
+						{type => <Chart type={type} data={this.state.data} />}
+					</TypeChooser>
+				</div>
 			</div>
 		)
 	}

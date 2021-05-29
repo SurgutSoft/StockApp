@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     --bg-main: #FFFFFF;
     --bg-secondary: rgba(125, 161, 230, 0.2);
     --bg-sidebar: linear-gradient(180deg, #022E71 0%, #903F69 100%);
+    --bg-sidebar-horizontal: linear-gradient(90deg, #022E71 0%, #903F69 100%);
 
     --crцitical: #eb747f;
     --critical: #FF0000;

@@ -1,50 +1,50 @@
-import React, {Component} from "react";
+import React from "react";
 import {SidebarLink} from "./SidebarLink";
 import {URLS} from "../../utils/constants/Urls";
 
 import {ReactComponent as WorkIcon} from "../../assets/svg/work.svg";
 import css from "./Sidebar.module.scss"
 
+interface IProps {
+  isMobile: boolean;
+}
 
-export default class Sidebar extends Component {
-  render() {
-    return (
-      <div className={css.sidebarWrapper}>
-        <div>
-          {/* <IconWrapper>
-          </IconWrapper> */}
+export const Sidebar = ({isMobile}: IProps) => {
+  return (
+    <div className={isMobile ? css.sidebarWrapperMobile : css.sidebarWrapperDesktop}>
+      <div className={isMobile ? css.flexMobileWrapper : undefined}>
+        <div className={css.nameWrapper}>
+          <span className={css.nameTitle}>Stock app</span>
+        </div>
 
-          <div className={css.nameWrapper}>
-            <div className={css.nameTitle}>HELLO WORLD</div>
-          </div>
-
-          <div className={css.sidebarDescription}>monitoring</div>
+        <div className={isMobile ? css.linksWrapper : undefined}>
           <SidebarLink
             iconName={<WorkIcon />}
             text="Акции"
             path={URLS.stockList}
-          // path={URLS.dashboard}
-          // active={activePath}
-          // setActive={this.setActive}
           />
-          <div className={css.sidebarDescription}>something information</div>
-          <SidebarLink
-            //iconName="device_hub"
-            text="что-то ещё"
-            path=""
-          />
-          <div className={css.sidebarDescription}>something else</div>
-          <SidebarLink
-            //iconName="toggle_on"
-            text="что-то ещё"
-            path=""
-          />
-        </div>
 
-        <div className={css.sidebarFooter}>
-          { }
+
+          <SidebarLink
+            text="Статистика"
+            path=""
+          />
+
+          <SidebarLink
+            text="О&nbsp;сервисе"
+            path={URLS.about}
+          />
+
+          <SidebarLink
+            text="авторизоваться"
+            path=""
+          />
         </div>
       </div>
-    );
-  }
+
+      <div className={css.sidebarFooter}>
+        {}
+      </div>
+    </div>
+  );
 }

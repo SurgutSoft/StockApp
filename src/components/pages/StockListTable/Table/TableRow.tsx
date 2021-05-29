@@ -1,4 +1,5 @@
 import React from 'react';
+import {DoubleRightOutlined} from '@ant-design/icons';
 import moment from 'moment';
 import {useHistory} from 'react-router';
 import {IStockList} from '../../../../Interfaces/ICommon';
@@ -23,7 +24,7 @@ export const TableRow = ({item, fetchPrice}: IProps) => {
       <td>{item.bottom_predict}</td>
       <td>{item.top_predict}</td>
       <td>{moment(item.TRADEDATE).format("YYYY-MM-DD")}</td>
-      <td>{"=>"}</td>
+      <td><DoubleRightOutlined /></td>
     </tr>
   )
 }

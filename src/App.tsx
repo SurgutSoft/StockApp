@@ -6,13 +6,16 @@ import {
   Redirect
 } from "react-router-dom";
 import {connect} from "react-redux";
+import {useTheme, useMediaQuery} from "@material-ui/core"
 
 import {URLS} from "./utils/constants/Urls";
-import Sidebar from "./components/sidebar/Sidebar";
+import {Sidebar} from "./components/sidebar/Sidebar";
 import {StockListTable} from "./components/pages/StockListTable/StockListTable";
 import {StockChart} from "./components/pages/Charts/index";
+import {About} from "./components/pages/About/About";
 
 import css from "./App.module.scss";
+import 'antd/dist/antd.css';
 import {fetchStocksList} from "./store/actions";
 
 interface IProps {
@@ -23,6 +26,9 @@ const App = ({
   fetchStocksList
 }: IProps) => {
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+
   useEffect(() => {
     fetchStocksList();
   }, [
@@ -31,12 +37,13 @@ const App = ({
 
   return (
     <Router>
-      <div className={css.container}>
-        <Sidebar />
+      <div className={isMobile ? css.containerMobile : css.containerDesktop}>
+        <Sidebar isMobile={isMobile} />
         <div className={css.pages}>
           <Switch>
             <Route path={URLS.stockList} component={StockListTable} />
             <Route path={URLS.stockChart} component={StockChart} />
+            <Route path={URLS.about} component={About} />
             <Redirect to={URLS.stockList} />
           </Switch>
         </div>
